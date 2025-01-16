@@ -82,16 +82,14 @@ public class Main {
 			.collect(Collectors.groupingBy(
 				Order::getCustomer,
 				Collectors.summingDouble(order -> order.getProducts().stream()
-					.mapToDouble(Product::getPrice) // Supponendo che getPrice restituisca un intero
-					.sum()
-				)
+					.mapToDouble(Product::getPrice).sum())
 			));
 
 		acquistiMap.forEach((customer, total) ->
 			System.out.println("Cliente: " + customer + ", Totale acquisti: " + total));
 	}
 
-	public static void Esercizio3(List<Product> productList){
-		System.out.println("\nIl prezzo più alto "+productList.stream().max(Comparator.comparingDouble(Product::getPrice)));
+	public static void Esercizio3(List<Product> productList) {
+		System.out.println("\nIl prezzo più alto " + productList.stream().max(Comparator.comparingDouble(Product::getPrice)));
 	}
 }
